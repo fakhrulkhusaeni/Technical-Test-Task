@@ -50,7 +50,6 @@ class GameTopupController extends Controller
             ], 400);
         }
 
-        // Anti-duplikasi 10 detik
         $duplicate = GameOrder::where('reference_id', $payload['reference_id'])
             ->where('created_at', '>=', now()->subSeconds(10))
             ->exists();
